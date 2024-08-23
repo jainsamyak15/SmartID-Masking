@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart ID Masking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SMART ID Masking</h1>
+            <p>Protect your sensitive information with intelligent masking</p>
+        </header>
+
+        <main>
+            <section id="upload-section">
+                <h2>Upload Your ID</h2>
+                <form id="uploadForm">
+                    <div class="form-row">
+                        <div class="file-input-wrapper">
+                            <input type="file" id="image" name="image" accept="image/*" required>
+                            <label for="image">Choose a file</label>
+                        </div>
+                        <button type="submit" id="detectButton">Detect Card Type</button>
+                    </div>
+                </form>
+                <button id="refreshButton">Refresh Page</button>
+            </section>
+
+            <section id="result-section" class="hidden">
+                <h2>Detection Result</h2>
+                <p id="cardType"></p>
+                <div id="maskingOptions" class="hidden">
+                    <h3>Select information to mask:</h3>
+                    <div id="labelCheckboxes"></div>
+                    <button id="maskButton">Apply Masking</button>
+                </div>
+                <div id="imageWrapper">
+                    <img id="resultImage" src="" alt="Processed Image">
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
